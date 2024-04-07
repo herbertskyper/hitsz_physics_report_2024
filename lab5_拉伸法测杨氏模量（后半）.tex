@@ -1,0 +1,141 @@
+\documentclass[signature=data]{physicsreport}
+
+%%
+%% User settings
+%%
+
+\classno{}
+\stuno{}
+\groupno{}
+\stuname{}
+\expdate{\expdatefmt\today}
+\expname{拉伸法测杨氏弹性模量}
+
+%%
+%% Document body
+%%
+
+\begin{document}
+% First page
+% Some titles and personal information are defined in ``\maketitle''.
+\maketitle
+
+\section{实验预习}
+\section{实验预习}
+
+% Teacher signature
+\makeatletter
+\physicsreport@body@signature{preparation}
+\makeatother
+
+\newpage
+
+% Original experiment data
+\section{实验现象及原始数据记录}
+
+
+% Teacher signature
+\makeatletter
+\physicsreport@body@signature{data}
+\makeatother
+
+\newpage
+% Data process and others
+\section{数据处理}
+（要有详细的计算过程，推导不确定度的表达式，计算杨氏模量及其不确定度，给出完整的测量结果表达形式）
+
+由于L，H，D测量误差满足均匀分布，故不确定度有：
+
+\begin{gather*}
+    U_L = \frac{0.8}{\sqrt 3}mm = 0.47mm\\
+    E_L = \frac{U_L}{L} = 0.064\%\\
+    P = 68.3\%\\
+    U_H = \frac{0.8}{\sqrt 3}mm = 0.47mm\\
+    E_H = \frac{U_H}{H} = 0.068\%\\
+    P = 68.3\%\\
+    U_D = \frac{0.02}{\sqrt 3}mm = 0.012mm\\
+    E_D = \frac{U_D}{D} = 0.030\%\\
+    P = 68.3\%\\
+\end{gather*}
+
+金属丝测量误差满足均匀分布，既有A类不确定度也有B类不确定度：
+
+\begin{gather*}
+    \bar d = \frac{\sum_{i=1}^{6}d_i}{6} = 0.598mm\\
+    U_{dA} = \sqrt{ \frac{\sum_{i=1}^{6}(d_i - \bar d)^2}{6 \times (6-1)} } = 0.0012mm\\
+    U_{dB} = \frac{0.004}{\sqrt 3}mm = 0.0023mm\\
+    U_d = \sqrt{U_{dA}^2 + U_{dB}^2} = 0.0026mm\\
+    E_d = \frac{U_d}{\bar d} = 0.44\%\\
+    P = 68.3\%
+\end{gather*}
+
+标尺刻度$\Delta x$既有A类不确定度也有B类不确定度：
+
+\begin{gather*}
+    \bar{\Delta x} = \frac{\sum_{i=1}^{5}\Delta x_i}{5} = 21.86mm\\
+    U_{\Delta x A} = \sqrt{ \frac{\sum_{i=1}^{5}(\Delta x_i - \bar{\Delta x})^2}{5 \times (5-1)} } = 0.130mm\\
+    U_{\Delta x B} = \sqrt{2} \frac{0.5}{\sqrt 3} = 0.408mm
+    U_{\Delta x} = \sqrt{ U_{\Delta x A}^2 + U_{\Delta x B}^2 } = 0.428mm
+    E_{\Delta x} = \frac{U_{\Delta x}}{\bar{\Delta x}} = 1.96\%\\
+\end{gather*}
+
+对杨氏模量计算公式两边取对数，有：
+
+\begin{gather*}
+    \ln E = \ln \frac{8 \Delta f}{\pi} + \ln L + \ln H - 2 \ln d - \ln D - \ln \Delta x
+\end{gather*}
+
+杨氏模量的相对不确定度推导如下：
+
+\begin{align*}
+    E_u &= \sqrt{(U_L \frac{\partial \ln E}{\partial L})^2 + (U_H \frac{\partial \ln E}{\partial d})^2 + (U_d \frac{\partial \ln E}{\partial d})^2 + (U_D \frac{\partial \ln E}{\partial D})^2 + (U_{\Delta x} \frac{\partial \ln E }{\partial \Delta x})^2} \\
+        &= \sqrt{ (\frac{U_L}{L})^2 + (\frac{U_H}{H})^2 + (\frac{2U_d}{d})^2 + (\frac{U_D}{D})^2 + (\frac{U_{\Delta x}}{\Delta x})^2 } \\
+        &= \sqrt{ E_L^2 + E_H^2 + 4E_d^2 + E_D^2 + E_{\Delta x}^2 } \
+\end{align*}
+
+故计算相对不确定度得：
+
+\begin{gather*}
+E_u = \sqrt{ E_L^2 + E_H^2 + 4E_d^2 + E_D^2 + E_{\Delta x}^2 } = 2.2\%\\
+E_u \times E = 0.04 \times 10^{11}Pa
+\end{gather*}
+
+最终杨氏模量测量结果：
+
+\begin{gather*}
+E = (2.02 \pm 0.04) \times 10^{11}Pa\\
+E_u = 2.2\%\\
+P = 68.3\%
+\end{gather*}
+
+\section{实验结论及误差分析}
+本实验通过拉伸法测量了钢丝的杨氏模量，得到的结果为$(2.02 \pm 0.04) \times 10^{11}Pa$，相对不确定度约为2.2\%，符合实验要求。
+
+误差分析：本实验的误差主要来自于测量仪器的误差，如千分尺、游标卡尺、钢尺的刻度误差。此外，实验过程中，金属丝的形变、摩擦、加力减力是否均匀等因素也会引入误差。
+
+本实验通过对数据的逐差法处理，消除了一部分数据偏差，提高了实验结果的准确性。
+
+为了进一步减小误差，可以提高测量仪器的精度，减小测量误差，同时在实验过程中尽量减小外界因素的影响。
+
+\section{讨论题}
+\begin{enumerate}
+    \item 材料相同，但粗细、长度不同的两根钢丝，它们的杨氏模量是否相同？
+ 
+    相同。杨氏模量只与材料的物理性质有关，与材料的大小、形状无关。
+
+    \item 从误差分析的角度分析为什么同是长度测量，需要采用不同的量具？
+    
+    对于金属丝直径$d$等较小的长度量精确度要求较高，故采用千分尺高精度测量。而对于较大长度，金属丝的原长和反射镜转轴到标尺的垂直距离$L,H$，精度要求较低，故采用钢尺测量。
+    而光杠杆常数$D$介于二者之间，用游标卡尺测量。
+
+    \item 实验过程中为什么加力和减力过程，施力螺母不能回旋？
+    
+    回旋施力螺母可能会导致金属丝来不及发生形变，也可能引入额外的摩擦，从而增加了实验中的不确定性和误差。
+
+    \item 用逐差法处理数据的优点是什么？应该注意什么问题？
+    逐差法可以充分利用所有数据，消除一部分由于系统误差引起的数据偏差。
+
+    注意问题：逐差法的有效性取决于原始数据的质量。如果原始数据的误差较大，逐差法会放大误差，得到的结果不准确。
+\end{enumerate}
+
+\end{document}

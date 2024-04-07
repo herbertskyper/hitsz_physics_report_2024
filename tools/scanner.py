@@ -3,7 +3,10 @@
 import os
 import numpy as np
 import cv2
+import tkinter as tk
 from typing import List
+from PIL import Image
+from PyPDF2 import PdfMerger
 
 def order_points(pts:List):
     pts = np.array(pts)
@@ -133,19 +136,82 @@ def main(path:str, save_path:str, gaussian_radius:int=19, threshold_val:float=0.
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def auto_scan(): # a wrapper to filter all `.jpg` files in the current directory
+def save_pdf(jpg_files):
+
+    # 将JPG文件转换为PDF文件
+    pdf_files = []
+    for jpg_file in jpg_files:
+        img = Image.open(jpg_file)
+        pdf_file = jpg_file.replace('.jpg', '.pdf')
+        img.save(pdf_file, "PDF", resolution=100.0)
+        pdf_files.append(pdf_file)
+
+    # 使用PyPDF2库将PDF文件合并
+    merger = PdfMerger()
+    for pdf_file in pdf_files:
+        merger.append(pdf_file)
+
+    # 保存合并后的PDF文件
+    merger.write("merged.pdf")
+    merger.close()
+
+    # 删除临时的PDF文件
+    for pdf_file in pdf_files:
+        os.remove(pdf_file)
+
+def auto_scan(gaussian_radius, threshold_val): # a wrapper to filter all `.jpg` files in the current directory
     current_directory = os.getcwd()
     files_in_directory = os.listdir(current_directory)
     jpg_files = [file for file in files_in_directory if file.endswith(".jpg")]
     # print(jpg_files)
     os.makedirs('output', exist_ok=True)
     for file in jpg_files:
-        save_path  = os.path.join('output', f'out_{file}')
+        save_path = os.path.join('output', f'out_{file}')
         try:
-            main(file, save_path)
+            main(file, save_path, gaussian_radius, threshold_val)
             print(f'[INFO] processed {file} successfully')
         except Exception as e:
             print(f'[Error] processing {file}: {e}')
 
+    jpg_scanned_dir = os.path.join(current_directory, 'output')
+    os.chdir(jpg_scanned_dir)
+    jpg_files = os.listdir()
+    save_pdf(jpg_files)
+
+def tk_init():
+    def get_value():
+        # 获取Spinbox组件中的值
+        gaussian_radius:str = gaussian.get()
+        threshold_val:str = threshold.get()
+        print(f'[INFO] gaussian_radius: {gaussian_radius}, threshold_val: {threshold_val}')
+        root.destroy()
+        auto_scan(int(gaussian_radius), float(threshold_val))
+
+    root = tk.Tk()
+
+    # 创建一个Spinbox组件
+    gaussian = tk.Spinbox(root, from_=1, to=60, increment=2, font=('微软雅黑', 30), )
+    threshold = tk.Spinbox(root, from_=0.1, to=1.0, increment=0.001, font=('微软雅黑', 30))
+    gaussian.delete(0, tk.END)
+    gaussian.insert(tk.END, '19')
+    threshold.delete(0, tk.END)
+    threshold.insert(tk.END, '0.98')
+
+    gaussian_text = tk.Label(root, text="高斯模糊半径（默认19）", font=('微软雅黑', 30))
+    threshold_text = tk.Label(root, text="阈值（默认0.98）", font=('微软雅黑', 30))
+
+    gaussian_text.pack(expand=True, padx=20, pady=8)
+    gaussian.pack(expand=True, padx=20, pady=8)
+    threshold_text.pack(expand=True, padx=20, pady=8)
+    threshold.pack(expand = True, padx=20, pady=8)
+
+    # 创建一个Button组件，点击时会调用get_value函数
+    button = tk.Button(root, text="OK", command=get_value, font=('微软雅黑', 30))
+    button.pack()
+
+    # 运行Tk窗口
+    root.mainloop()
+    
 if __name__ == '__main__':
-    auto_scan()
+    tk_init()
+
