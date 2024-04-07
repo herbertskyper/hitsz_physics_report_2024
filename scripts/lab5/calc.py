@@ -20,13 +20,14 @@ D = 39.50
 
 # code
 df = df.fillna(d0)
+print(df)
+
 avg_d = (df['d'][0:6] - d0).sum()/6
 print(f"avg_d = {avg_d}")
 delta_x = df['x'][5:10].reset_index(drop=True) - df['x'][0:5].reset_index(drop=True)
 avg_delta_x = delta_x.sum()/5
 print(f'avg_delta_x = {avg_delta_x}')
-print(df)
-print((df['x'][5:10].reset_index(drop=True) - df['x'][0:5].reset_index(drop=True)).sum())
+# print((df['x'][5:10].reset_index(drop=True) - df['x'][0:5].reset_index(drop=True)).sum())
 def E(delta_m, L, H, D, avg_d):
     return( 8*delta_m*g*L*H)/(pi*D*(avg_d**2)*avg_delta_x)
 
