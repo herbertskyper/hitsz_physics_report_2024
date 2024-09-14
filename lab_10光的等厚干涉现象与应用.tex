@@ -1,0 +1,88 @@
+\documentclass[signature=data]{physicsreport}
+\usepackage{graphicx}
+
+%%
+%% User settings
+%%
+
+\classno{}
+\stuno{}
+\groupno{}
+\stuname{}
+\expdate{\expdatefmt\today}
+\expname{光的等厚干涉现象与应用}
+
+%%
+%% Document body
+%%
+
+\begin{document}
+% First page
+% Some titles and personal information are defined in ``\maketitle''.
+\maketitle
+
+\section{实验预习指导}
+\newpage
+
+\section{原始数据记录}
+% Teacher signature
+\makeatletter
+\physicsreport@body@signature{data}
+\makeatother
+
+\newpage
+
+% Data process and others
+\section{数据处理}
+
+用逐差法求 $D^2_m - D^2_n$ 的平均值；计算曲率半径 $R$ 的平均值及不确定度；计算磁带的厚度（选做），要有完整的计算过程。
+
+\subsection{牛顿环实验}
+
+根据逐差法, 得 
+
+$D^2_m - D^2_n$ 的平均值 $ \overline{D_{m}^{2}-D_{n}^{2}}=\frac{1}{11} \sum_{n=10}^{2}\left(D_{n+11}^{2}-D_{n}^{2}\right)=22.98 \mathrm{~mm}^{2} $ 。
+
+曲率半径的平均值  $\bar{R}=\frac{\overline{D_{m}^{2}-D_{n}^{2}}}{4(m-n) \lambda}=\frac{22.98 \mathrm{~mm}^{2}}{44 \times 589.3 \mathrm{~nm}}=886.15 \mathrm{~mm} $ 。
+
+计算不确定度的公式如下：
+
+$U_{\overline{D^2_m-D^2_n}} = \sqrt {S^2_{D^2_m - D^2_n} + u^2} \approx S^2_{D^2_m - D^2_n} = \sqrt{\frac{1}{11 \times 10} \sum_{i=1}^{11} [(D^2_m - D^2_{n}) - \overline{(D^2_{m} - D^2_{n})} ]^2}$
+
+代入数据计算得$U_{\overline{D^2_m-D^2_n}}=0.02596\mathrm{~mm}^{2}$
+
+不确定度$U_{\overline{R}}=\frac{U_{\overline{D^2_m-D^2_n}}}{4(m-n)\lambda}=\frac{0.02596 \mathrm{~mm}^{2}}{44 \times 589.3 \mathrm{~nm}}=1.001\mathrm{mm}$
+
+\subsection{磁带厚度测量}
+劈棱到磁带端的总长$\overline{L}=18.420mm$
+
+通过实验数据计算得到$\overline{l}=6.066mm$
+
+则单位长度干涉条纹条数为$\frac{10}{\overline{l}}=1.649mm^{-1}$
+
+磁带厚度$d=\frac{h\overline{L}\lambda}{2}=8.950\mu m $
+
+
+
+\newpage
+
+\section{实验现象分析及结论}
+干涉条纹等距，中心会看到忽明忽暗的斑。
+
+计算得到的数据如上，相对误差较小，与实际数据有一定差异，可能因为操作不当，测量不准确等原因。
+
+\section{讨论题}
+
+
+
+\subsection{理论上牛顿环中心是个暗点，实际上看到的往往是个忽明忽暗的斑，其原因是什么?对透镜曲率半径$R$测量有无影响?}
+
+由于透镜和玻璃板表面不完美，存在微小的不规则性，导致空气薄膜厚度不均匀。此外，光源的非单色性也会造成干涉条纹不清晰，从而使中心点出现忽明忽暗的现象。
+
+这种现象对透镜曲率半径$R$的测量影响较小，因为牛顿环的半径仍然可以通过外部较清晰的干涉环准确测量。不过，为了提高精度，最好使用单色光并尽量减少表面缺陷的影响。
+
+\subsection{实验中，若平板玻璃上有微小的凸起，则凸起处的干涉条纹会发生如何变化？}
+
+凸起处的干涉条纹会向外弯曲。
+
+\end{document}

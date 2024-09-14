@@ -1,0 +1,140 @@
+\documentclass[signature=data]{physicsreport}
+\usepackage{graphicx}
+
+%%
+%% User settings
+%%
+
+\classno{}
+\stuno{}
+\groupno{}
+\stuname{}
+\expdate{\expdatefmt\today}
+\expname{自组显微镜与望远镜实验}
+
+%%
+%% Document body
+%%
+
+\begin{document}
+% First page
+% Some titles and personal information are defined in ``\maketitle''.
+\maketitle
+
+\section{实验预习指导}
+\newpage
+
+\section{原始数据记录}
+% Teacher signature
+\makeatletter
+\physicsreport@body@signature{data}
+\makeatother
+
+\newpage
+
+% Data process and others
+\section{数据处理}
+\subsection{分别求出自组显微镜测量放大率和计算放大率。}
+
+\begin{itemize}
+    \item 自组显微镜测量放大率计算公式：$M=-\frac{d*10}{a}$,实际放大率计算公式：$\Gamma \approx \frac{L*\Delta}{f_1*f_2}$,其中，$\Delta$为光学筒长,$f_1=45mm$为物镜焦距，$f_2=34mm$为目镜焦距,$L=260mm$为明视距离。
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        序号  & 测量放大率$M$  & 计算放大率$\Gamma$\\
+        \hline
+        1 & -26.31 & -25.49\\
+        \hline
+        2 & -32.27 & -31.78\\
+        \hline
+        3 & -35.70 & -37.52\\
+        \hline
+        4 & -41.32 & -52.02\\
+        \hline
+        5 & -45.98 & -47.80\\
+        \hline
+        \end{tabular}
+        \label{tab:experiment_data1}
+    \end{table}
+\end{itemize}
+\subsection{分别求出自组开普勒望远镜、伽利略望远镜实际测量放大率和无限远放大率。}
+
+\begin{itemize}
+    \item 自组开普勒望远镜实际测量放大率计算公式:$M=-\frac{d_2}{d_1}$,无限远放大率计算公式$M=-\frac{f_1}{f_2}$
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        序号  & 测量放大率$M$  & 计算放大率$\Gamma$\\
+        \hline
+        1 & -6.1 & -5\\
+        \hline
+        2 & -5.5 & -5\\
+        \hline
+        3 & -5.1 & -5\\
+        \hline
+        \end{tabular}
+        \label{tab:experiment_data2}
+    \end{table}
+
+    \item 自组伽利略望远镜实际测量放大率计算公式:$M=\frac{d_2}{d_1}$,无限远放大率计算公式$M=-\frac{f_1}{|f_2|}$
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        序号  & 测量放大率$M$  & 计算放大率$\Gamma$\\
+        \hline
+        1 & 3.8 & 5\\
+        \hline
+        2 & 3.6 & 5\\
+        \hline
+        3 & 3.7 & 5\\
+        \hline
+        \end{tabular}
+        \label{tab:experiment_data3}
+    \end{table}
+\end{itemize}
+
+\newpage
+
+\section{实验现象分析及结论}
+
+在光学仪器中，显微镜能够产生相对于实际物体而言的倒立、放大的虚像，而望远镜则展现出正立、放大的虚像。
+
+三个实验中实际测量得到的放大率与无限远放大率的理想值相比，均有较大的误差。
+
+导致实验中测得的放大率与理论预期放大率之间出现这些差异的原因可能包括以下几个方面，实验过程中的操作精度、透镜的光学性能以及透镜之间距离的精细调整等。
+
+\hspace{2em}
+
+\section{讨论题}
+
+\subsection{请简述显微镜与望远镜的区别？}
+
+显微镜和望远镜是两种专门设计用于观察肉眼难以辨识细节的光学仪器，它们在用途、构造和工作原理上存在显著差异：
+
+\strong{用途方面：} 显微镜被广泛应用于观察极其微小的物体或其表面的精细结构，如细胞等微观样本，这些样本通常位于观察者较近的距离内。相对而言，望远镜则旨在捕捉和放大远距离目标的图像，例如天体等。
+
+\strong{构造方面：} 显微镜由物镜和目镜两部分组成，物镜负责产生物体的放大实像，而目镜则对这一实像进行进一步的放大。显微镜的设计重点在于对微小物体细节的放大，因此它通常具备较高的放大倍数。望远镜同样采用物镜和目镜的组合配置，但其设计宗旨在于收集来自遥远物体的光线并进行放大，以便增加远处物体的可见度，而不是追求极高的放大倍数。
+
+\strong{工作原理方面：} 显微镜的设计中，物镜具有较短的焦距，这样做是为了实现较高的放大率，使得微小物体能够被放大观察。而望远镜的物镜则具有较长的焦距，其目的是尽可能多地收集来自遥远物体的光线，以提高这些物体的亮度和清晰度。
+
+通过这些设计上的差异，显微镜和望远镜各自满足了不同观察需求。
+
+\hspace{2em}
+
+\subsection{请思考自组望远镜实际视放大率测量值与无限远放大率数值出现差异的原因？}
+
+在实验中，由于物体并非处于理论上的无限远位置，实际的物距对放大率的理论计算提出了新的要求。
+
+实际使用的透镜可能带有一定的光学缺陷，比如球面像差和色差等。
+
+在透镜的装配和调整过程中，由于装配的精度或者调整时的误差，实际操作中两个透镜之间的距离可能会与理想状态有所出入。
+
+在实验中，对物体大小的测量可能会出现读数误差，尤其是在使用望远镜进行观察时。
+
+当观察者通过望远镜观察物体时，人眼的调节能力也会对观测效果产生影响。
+
+
+\end{document}

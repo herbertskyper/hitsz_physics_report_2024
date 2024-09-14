@@ -1,0 +1,70 @@
+\documentclass[signature=data]{physicsreport}
+\usepackage{graphicx}
+
+%%
+%% User settings
+%%
+
+\classno{}
+\stuno{}
+\groupno{}
+\stuname{}
+\expdate{\expdatefmt\today}
+\expname{用惠斯通电桥测电阻}
+
+%%
+%% Document body
+%%
+
+\begin{document}
+% First page
+% Some titles and personal information are defined in ``\maketitle''.
+\maketitle
+\section{实验目的}
+\section{实验预习}
+\newpage
+
+\section{实验现象及数据记录}
+% Teacher signature
+\makeatletter
+\physicsreport@body@signature{data}
+\makeatother
+
+\newpage
+
+% Data process and others
+
+
+\section{实验结论及现象分析}
+对比不能比 N 值下，惠斯通电桥灵敏度变化，并分析其他可能影响惠斯通电桥灵敏度参量
+
+
+实验数据显示，惠斯通电桥的灵敏度在比例臂比值增加时先升高后降低。
+当比例臂比值为1时，电桥的灵敏度达到最大。
+
+电源电压、滑动变阻器的阻值、检流计的内阻及其自身灵敏度等因素都会影响电桥的灵敏度。
+实际上，滑动变阻器的阻值与电源电压的作用相似，都是通过调整电桥两端的输入电压来调控电桥的灵敏度。
+
+\section{讨论问题}
+
+\subsection{电桥测电阻为什么不能测量小于 $1\Omega$ 的电阻？}
+
+在惠斯通电桥的应用中，通常忽略线路的电阻。
+然而，当待测电阻小于$1\Omega$时，电桥内部导线的电阻不再可以忽略。
+此外，连接不同元件的导线电阻也各不相同，这种差异会导致惠斯通电桥在测量小电阻时准确性下降，难以得到精确的测量结果。
+
+
+\subsection{用什么方法保护电流计，不至于因电流过大而损坏？}
+
+在正式测量之前，可以先对待测电阻进行初步估算，以大致确定电阻箱的初始设定值。
+在测量过程中，应从电流计的最低灵敏度开始，逐步提高灵敏度进行测量。
+进行电路调整时，必须先断开电流计与电路的连接。
+调整电阻箱时，最好按照从低位旋钮到高位旋钮的顺序依次进行调节。
+
+\subsection{当电桥平衡后，若互换电源和检流计位置，电桥是否仍然平衡？并证明。}
+
+理论上电桥仍然保持平衡。当原电桥达到平衡后，滑动变阻器位于干路中。
+更换电源和检流计的位置后，滑动变阻器依然位于干路上。
+通过分析电路，可以发现此时比例臂关系发生了变化，但电桥的平衡条件仍然保持不变，还是$R_xr_R=Rr_x$
+根据原来的数据，新电桥在这种情况下仍能维持平衡。
+\end{document}
