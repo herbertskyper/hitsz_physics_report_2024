@@ -11,11 +11,11 @@ for pdf_file in pdf_files:
     pdf_reader = PdfReader(f)
     # 将每一页添加到PdfFileWriter对象中
     if pdf_file==pdf_files[0]:
-        for page_num in range(2):
+        for page_num in range(4):
             page = pdf_reader.pages[page_num]
             pdf_writer.add_page(page)
     else:
-        for page_num in range(2,len(pdf_reader.pages)):
+        for page_num in range(1,len(pdf_reader.pages)):
             page = pdf_reader.pages[page_num]
             pdf_writer.add_page(page)
 
